@@ -1,4 +1,4 @@
-package com.example.restfulwebservice;
+package com.example.restapi.Exceptions;
 
 import java.util.Date;
 

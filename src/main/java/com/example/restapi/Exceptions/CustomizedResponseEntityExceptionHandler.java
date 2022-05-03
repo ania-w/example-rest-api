@@ -1,6 +1,5 @@
-package com.example.restfulwebservice;
+package com.example.restapi.Exceptions;
 
-import com.example.restfulwebservice.User.UserNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,10 +25,10 @@ extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(UserNotFoundException.class)
+    @ExceptionHandler(ElementNotFoundException.class)
     public final ResponseEntity<Object> handleUserNotFoundException(Exception e, WebRequest request)
     {
-        ExceptionResponse response=new ExceptionResponse(new Date(), e.getMessage(),request.getDescription(false));
+        ExceptionResponse response=new ExceptionResponse(new Date(), "Invalid id",request.getDescription(false));
 
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
